@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bartreardon/WallpaperFolderManager.git",
       "state" : {
-        "revision" : "02b9043943eb249ce9bc1d321c0192da582c61ed",
-        "version" : "1.0.0"
+        "revision" : "50bc69eb05900ffeced7bf24c10d5a5c7d72279f",
+        "version" : "1.0.1"
       }
     }
   ],
