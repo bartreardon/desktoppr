@@ -1,0 +1,24 @@
+{
+  "originHash" : "f3ad1757a789609e86d08198b71c0a312612a5d377f11d7924897c18bce9abbc",
+  "pins" : [
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "cdd0ef3755280949551dc26dee5de9ddeda89f54",
+        "version" : "1.6.2"
+      }
+    },
+    {
+      "identity" : "wallpaperfoldermanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bartreardon/WallpaperFolderManager.git",
+      "state" : {
+        "revision" : "02b9043943eb249ce9bc1d321c0192da582c61ed",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

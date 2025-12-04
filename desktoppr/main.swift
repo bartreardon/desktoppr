@@ -21,6 +21,7 @@
 import Foundation
 import AppKit
 import CryptoKit
+import WallpaperFolderManagerLib
 
 let version = "0.5"
 
@@ -32,6 +33,9 @@ enum ScreenOption : Equatable {
   case clip
   case scale
   case manage
+  case addfolder
+  case removefolder
+  case listfolders
 }
 
 enum ScaleOption : String {
@@ -58,6 +62,16 @@ desktoppr: a tool to set the desktop picture
 
          manage:     read settings from com.scritpingosx.desktoppr preference domain
                      see documentation for details
+
+         addfolder:  <path>
+                     Adds the folder path as a custom image set that will appear
+                     in System Settings -> Wallpaper
+
+         removefolder: <path>
+                     Removes the specified folder from the list of custom image sets
+
+         listfolders:
+                     Lists folder paths to all registered image sets
 
          https://github.com/scriptingosx/desktoppr
 """)
@@ -98,6 +112,12 @@ func parseOption(argument: String) -> ScreenOption? {
     option = .scale
   case "manage":
     option = .manage
+  case "addfolder":
+    option = .addfolder
+  case "removefolder":
+    option = .removefolder
+  case "listfolders":
+    option = .listfolders
   default:
     // is the argument a number?
     if let index = Int(argument) {
@@ -320,6 +340,37 @@ func imageScaling(for screen: NSScreen) -> ScaleOption? {
   return imageScaling
 }
 
+func addWallpaperFolder(_ path: URL) {
+    do {
+        let manager = try WallpaperFolderManager()
+        try manager.addFolderAndApply(path.relativePath)
+    } catch {
+        fputs("Error: \(error.localizedDescription)\n", stderr)
+    }
+}
+
+func removeWallpaperFolder(_ path: URL) {
+    do {
+        let manager = try WallpaperFolderManager()
+        try manager.removeFolderAndApply(path.relativePath)
+    } catch {
+        fputs("Error: \(error.localizedDescription)\n", stderr)
+    }
+}
+
+func listWallpaperFolders() {
+    do {
+        let manager = try WallpaperFolderManager()
+        // List all registered folders
+        let folders = try manager.listFolders()
+        for folder in folders {
+            print("\(folder.path) - Added: \(folder.dateAdded!)")
+        }
+    } catch {
+        fputs("Error: \(error.localizedDescription)\n", stderr)
+    }
+}
+
 func main() {
   // first argument is always path to binary, ignore
   let arguments = CommandLine.arguments.dropFirst()
@@ -416,6 +467,12 @@ func main() {
     }
   case .manage:
     setFromDefaults()
+  case .addfolder:
+      addWallpaperFolder(fileURL!)
+  case .removefolder:
+      removeWallpaperFolder(fileURL!)
+  case .listfolders:
+      listWallpaperFolders()
   }
 }
 

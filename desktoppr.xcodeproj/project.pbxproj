@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		416104B32EE11E480076019C /* WallpaperFolderManagerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 416104B22EE11E480076019C /* WallpaperFolderManagerLib */; };
 		C678CB6221415F31006AA69F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C678CB6121415F31006AA69F /* main.swift */; };
 		C6B327E32B46DF4F00873956 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B327E22B46DF4F00873956 /* Defaults.swift */; };
 		C6B327E62B46DF8300873956 /* Digest-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B327E52B46DF8300873956 /* Digest-Extension.swift */; };
@@ -47,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416104B32EE11E480076019C /* WallpaperFolderManagerLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +161,9 @@
 				Base,
 			);
 			mainGroup = C678CB5521415F31006AA69F;
+			packageReferences = (
+				416104B12EE11E480076019C /* XCRemoteSwiftPackageReference "WallpaperFolderManager" */,
+			);
 			productRefGroup = C678CB5F21415F31006AA69F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -347,11 +352,12 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 218;
+				CURRENT_PROJECT_VERSION = 219;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = JME5BW3F3R;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = N8GJ2Y5Z9T;
 				ENABLE_HARDENED_RUNTIME = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.scriptingosx.desktoppr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -365,11 +371,12 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 218;
+				CURRENT_PROJECT_VERSION = 219;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = JME5BW3F3R;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = N8GJ2Y5Z9T;
 				ENABLE_HARDENED_RUNTIME = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.scriptingosx.desktoppr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,6 +407,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		416104B12EE11E480076019C /* XCRemoteSwiftPackageReference "WallpaperFolderManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bartreardon/WallpaperFolderManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		416104B22EE11E480076019C /* WallpaperFolderManagerLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 416104B12EE11E480076019C /* XCRemoteSwiftPackageReference "WallpaperFolderManager" */;
+			productName = WallpaperFolderManagerLib;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C678CB5621415F31006AA69F /* Project object */;
 }
